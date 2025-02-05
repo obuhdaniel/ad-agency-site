@@ -12,7 +12,11 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        aeonik: ["Aeonik", "sans-serif"],
+      }
     },
   },
   plugins: [],
 } satisfies Config;
+

@@ -1,0 +1,21 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="smallGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="gray" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <g transform="scale(1, 0.6) skewX(10)">
+    <path d="M 0 250 Q 200 50, 400 250 T 800 250" fill="none" stroke="black" stroke-width="0.5"/>
+    <path d="M 0 200 Q 200 0, 400 200 T 800 200" fill="none" stroke="black" stroke-width="0.5"/>
+    <path d="M 0 300 Q 200 100, 400 300 T 800 300" fill="none" stroke="black" stroke-width="0.5"/>
+    <path d="M 0 350 Q 200 150, 400 350 T 800 350" fill="none" stroke="black" stroke-width="0.5"/>
+    
+    <path d="M 100 0 Q 300 250, 100 500" fill="none" stroke="black" stroke-width="0.5"/>
+    <path d="M 200 0 Q 400 250, 200 500" fill="none" stroke="black" stroke-width="0.5"/>
+    <path d="M 300 0 Q 500 250, 300 500" fill="none" stroke="black" stroke-width="0.5"/>
+    <path d="M 400 0 Q 600 250, 400 500" fill="none" stroke="black" stroke-width="0.5"/>
+    <path d="M 500 0 Q 700 250, 500 500" fill="none" stroke="black" stroke-width="0.5"/>
+    <path d="M 600 0 Q 800 250, 600 500" fill="none" stroke="black" stroke-width="0.5"/>
+    <path d="M 700 0 Q 900 250, 700 500" fill="none" stroke="black" stroke-width="0.5"/>
+  </g>
+</svg>
