@@ -24,7 +24,7 @@ function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const isActive = (path: String) => pathname === path;
+  const isActive = (path: string) => pathname === path;
 
   const navigationLinks = [
     { path: '/', label: 'Home' },
