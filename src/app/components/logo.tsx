@@ -1,4 +1,4 @@
-const Logo = ({ className = "" }) => (
+const Logo = () => (
     <div className={`flex flex-col lg:flex-row items-center gap-[2px]`}>
         <img 
             src="/whiteLogo.png" 

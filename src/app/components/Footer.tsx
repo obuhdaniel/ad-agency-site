@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white text-center py-10 px-6 md:px-16">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-       <Logo className="h-12 w-auto"/>
+       <Logo />
 
         {/* Call to Action */}
         <div className="text-center md:text-right">
