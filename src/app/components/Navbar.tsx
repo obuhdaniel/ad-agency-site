@@ -28,8 +28,8 @@ function NavBar() {
 
   const navigationLinks = [
     { path: '/', label: 'Home' },
-    { path: '/service', label: 'Services' },
-    { path: '/about', label: 'About' }
+    { path: '#about', label: 'Services' },
+    { path: '#wwo', label: 'About' }
   ];
 
   return (
