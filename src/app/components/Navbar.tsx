@@ -6,16 +6,16 @@ import { usePathname } from 'next/navigation';
 const EbytesLogo = ({ className = "" }) => (
   <div className={`flex items-center gap-3 ${className}`}>
     <div className="relative">
-      <div className="absolute -inset-1 bg-black dark:from-gray-800 dark:to-gray-900 rounded-full " />
+      <div className="absolute -inset-1 bg-black rounded-full " />
       <img 
         src="/whiteLogo.png" 
         alt="Golden Media Nigeria Logo" 
         className="relative w-14 h-auto rounded-full "
       />
     </div>
-    <span className="text-xl font-bold text-gray-900 dark:text-white">
+    <span className="text-xl font-bold text-gray-900">
       Golden Media
-      <span className="bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent"> NG</span>
+      <span className="bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent"> NG</span>
     </span>
   </div>
 );
@@ -34,7 +34,7 @@ function NavBar() {
 
   return (
     <div className="sticky top-0 z-50">
-      <nav className="bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800">
+      <nav className="bg-white/80 backdrop-blur-lg border-b border-gray-200 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -53,8 +53,8 @@ function NavBar() {
                     href={path}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                       isActive(path)
-                        ? 'bg-gray-900 text-white dark:bg-white dark:text-gray-900'
-                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                        ? 'bg-gray-900 text-white '
+                        : 'text-gray-600  hover:bg-gray-100 '
                     }`}
                   >
                     {label}
@@ -62,7 +62,7 @@ function NavBar() {
                 ))}
                 
                 {/* Contact Button */}
-                <button className="ml-4 inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-900 dark:bg-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors">
+                <button className="ml-4 inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors">
                   Contact Us
                   <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -75,7 +75,7 @@ function NavBar() {
             <div className="lg:hidden">
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
               >
                 <span className="sr-only">Open main menu</span>
                 {menuOpen ? (
@@ -94,7 +94,7 @@ function NavBar() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="lg:hidden bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800">
+          <div className="lg:hidden bg-white border-b border-gray-200">
             <div className="px-4 py-4 space-y-2">
               {navigationLinks.map(({ path, label }) => (
                 <Link
@@ -102,14 +102,14 @@ function NavBar() {
                   href={path}
                   className={`block px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActive(path)
-                      ? 'bg-gray-900 text-white dark:bg-white dark:text-gray-900'
-                      : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                      ? 'bg-gray-900 text-white'
+                      : 'text-gray-600 hover:bg-gray-100'
                   }`}
                 >
                   {label}
                 </Link>
               ))}
-              <button className="mt-4 w-full inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gray-900 dark:bg-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors">
+              <button className="mt-4 w-full inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors">
                 Contact Us
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
