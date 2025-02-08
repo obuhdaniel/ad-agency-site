@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export default function WhatWeOffer() {
@@ -83,12 +84,12 @@ export default function WhatWeOffer() {
         <p className="text-lg md:text-xl font-semibold text-gray-900 mb-6">
           Ready to transform your brand into a powerhouse? 🚀
         </p>
-        <button className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors">
-          Get Started
-          <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </button>
+        <Link href="mailto:daniel0292016@gmail.com" className="ml-4 inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors">
+                  Get Started
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
         </div>
       </div>
       </div>
