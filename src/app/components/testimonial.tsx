@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
@@ -7,104 +7,67 @@ const testimonials = [
   {
     quote: "Their innovative approach to advertising our School made a huge impact on our new Students Admissions.",
     name: "Angela Omordi",
-    title: "Founder",
+    title: "Founder Royal Kiddies Academy",
     company: "Royal Kiddies Academy",
     image: "/testimonial2.jpg",
   },
   {
     quote: "Professional, creative, and results-driven – Golden Media delivers every time!",
     name: "Sarah Okojie",
-    title: "Brand Manager",
+    title: "Brand Manager Prime Suites Apartments",
     company: "Prime Suites Apartments",
     image: "/testimonial3.jpg",
   },
   {
     quote: "We experience Great Business Improvements after our Campaign with Golden Mwdia",
     name: "Jude Efokodi",
-    title: "Operations Head",
+    title: "Operations Head D Shield Studios",
     company: "D Shield Studios",
     image: "/testimonial4.jpg",
   },
 ];
 
 export default function TestimonialCarousel() {
-  const [current, setCurrent] = useState(0);
+   const [index, setIndex] = useState(0);
 
-  const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % testimonials.length);
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
 
-  const prevSlide = () => {
-    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+    return () => clearInterval(interval);
+  }, []);
+
+  const current = testimonials[index];
 
   return (
-    <section className="bg-white max-w-7xl mx-auto  relative overflow-hidden py-16">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-8">
-          What Our <span className="bg-gradient-to-r from-gray-900 to-gray-600  bg-clip-text text-transparent">Clients Say</span>
-        </h2>
+    <div className="relative bg-[#f7f7f0] min-h-[500px] flex items-center justify-center text-center overflow-hidden px-4">
+      {/* Background Image
+      <img
+        src={current.image}
+        alt="brush stroke"
+        className="absolute opacity-30 w-96 h-96 object-contain"
+        style={{ zIndex: 0 }}
+      /> */}
 
-        <div className="relative max-w-2xl mx-auto">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.5 }}
-              className="bg-white  rounded-2xl shadow-xl p-8"
-            >
-              <p className="text-xl text-gray-600 mb-6">{testimonials[current].quote}</p>
-              <div className="flex items-center justify-center">
-                {/* <img
-                  src={testimonials[current].image}
-                  alt={testimonials[current].name}
-                  className="w-12 h-12 rounded-full mr-4 object-cover"
-                /> */}
-                <div>
-                  <div className="font-bold text-gray-900 ">{testimonials[current].name}</div>
-                  <div className="text-sm text-gray-500 ">
-                    {testimonials[current].title} at {testimonials[current].company}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        <div className="flex justify-center gap-4 mt-8">
-          <button
-            onClick={prevSlide}
-            className="p-3 rounded-full bg-gray-100  hover:bg-gray-200 transition"
-          >
-             <svg className="w-6 h-6 text-gray-900 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-          </button>
-
-          <div className="flex items-center gap-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrent(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === current ? "w-6 bg-gray-900 " : "bg-gray-300 "
-                }`}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={nextSlide}
-            className="p-3 rounded-full bg-gray-100  hover:bg-gray-200  transition"
-          >
-             <svg className="w-6 h-6 text-gray-900 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-          </button>
-        </div>
-      </div>
-    </section>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={index}
+          className="max-w-4xl mx-auto z-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.8 }}
+        >
+          <p className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            {current.quote}
+          </p>
+          <p className="italic font-medium text-gray-800">
+            {current.name}
+          </p>
+          <p className="text-sm text-gray-700">{current.title} at {current.company}</p>
+        </motion.div>
+      </AnimatePresence>
+    </div>
   );
 }

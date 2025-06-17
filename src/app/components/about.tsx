@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import ClientsSlider from "./clientSlider";
 
 export default function AboutUs() {
   const stats = [
@@ -10,9 +11,10 @@ export default function AboutUs() {
 
   return (
     <section className="bg-white relative overflow-hidden">
-      {/* Background gradient
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-500" /> */}
 
+      <div className='my-5'>
+        <ClientsSlider/>
+      </div>
       <div className="container mx-auto px-4 py-16 md:py-24 relative">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
