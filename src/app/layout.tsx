@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       "Golden Media NG is a leading marketing agency in Nigeria, specializing in brand advertisement, radio, TV, and Signage campaigns. Grow your brand with us!",
     images: [
       {
-        url: "https://www.goldenmedia.com.ng/blackLogo.png",
+        url: "https://www.goldenmedia.com.ng/images/new-logo2.png",
         width: 1200,
         height: 630,
         alt: "Golden Media",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: "Golden Media NG | Top Marketing Agency in Nigeria",
     description:
       "Golden Media NG is a leading marketing agency in Nigeria, specializing in brand advertisement, radio, TV, and Signage campaigns. Grow your brand with us!",
-    images: ["https://www.goldenmedia.com.ng/blackLogo.png"],
+    images: ["https://www.goldenmedia.com.ng/images/new-logo2.png"],
   },
   icons: {
     icon: "/export3.ico",

@@ -9,7 +9,7 @@ export const defaultSEOConfig = {
       site_name: "Golden Media NG",
       images: [
         {
-          url: "https://www.goldenmedia.com.ng/blackLogo.png",
+          url: "https://www.goldenmedia.com.ng/images/new-logo2.png",
           width: 1200,
           height: 630,
           alt: "Goldem Media",
