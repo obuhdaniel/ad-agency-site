@@ -36,27 +36,6 @@ function NavBar() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const pathname = usePathname();
 
-  // Detect system preference and localStorage on mount
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("theme") as
-      | "light"
-      | "dark"
-      | null;
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    const initialTheme = storedTheme || (prefersDark ? "dark" : "light");
-    setTheme(initialTheme);
-    document.documentElement.classList.toggle("dark", initialTheme === "dark");
-  }, []);
-
-  // Toggle and persist theme
-  const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
-    localStorage.setItem("theme", newTheme);
-  };
 
   const isActive = (path: string) => pathname === path;
 
@@ -64,7 +43,7 @@ function NavBar() {
     { path: "/", label: "Home" },
     { path: '/about', label: 'About' },
     { path: '/services', label: 'Services' },
-    { path: '/portfolio', label: 'Portfolio' },
+    // { path: '/portfolio', label: 'Portfolio' },
     { path: '/blog', label: 'Blog' }
 
   ];
@@ -105,10 +84,12 @@ function NavBar() {
               </div>
 
               {/* Contact Button - Hidden on small screens, visible on desktop */}
-              <Link
-                href="mailto:daniel0292016@gmail.com"
+                <Link
+                href="https://wa.link/jtjpyb"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hidden lg:inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-gray-900 to-gray-700 rounded-lg hover:from-gray-800 hover:to-gray-600 dark:from-white dark:to-gray-100 dark:text-black transition-all duration-200 hover:scale-105 shadow-md"
-              >
+                >
                 Contact
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -129,50 +110,7 @@ function NavBar() {
               </button>
             </div>
 
-            <div className="flex flex-col items-center gap-1   w-[5%] min-w-fit ">
-
-              <div className="block">
-                <div className="bg-white dark:bg-black px-2 py-1 w-full text-black dark:text-white rounded-lg text-xs">
-                  <CurrentTimeDisplay />
-                </div>
-              </div>
-
-
-              <div className="block bg-red h-full w-full ">
-
-                <button
-                onClick={toggleTheme}
-                className="px-2 rounded-lg h-full dark:bg-black bg-white w-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 hover:scale-105 flex items-center justify-center"
-                aria-label="Toggle Theme"
-                >
-                {theme === "dark" ? (
-                  <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  >
-                  <path
-                    d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"
-                    className="text-white dark:text-white"
-                  />
-                  </svg>
-                ) : (
-                  <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  >
-                  <path
-                    fillRule="evenodd"
-                    d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"
-                    clipRule="evenodd"
-                    className="text-black dark:text-black"
-                  />
-                  </svg>
-                )}
-                </button>
-              </div>
-            </div>
+           
           </div>
         </div>
 

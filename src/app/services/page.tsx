@@ -2,13 +2,14 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lightbulb, Video, Image, Mic, Camera, Layers, ArrowLeft, ArrowRight, Play, Eye, Clock } from "lucide-react";
+import NavBar from "../components/Navbar";
 
 const services = [
   {
     title: "Audio Jingles",
     description: "Catchy, branded, and made to stick. Perfect for radio, TV, or online campaigns.",
     icon: <Mic className="w-6 h-6 text-white" />,
-    color: "from-red-500 to-purple-700",
+    color: "from-red-500 to-orange-700",
     stats: { projects: "150+", avgDuration: "30sec", satisfaction: "98%" },
     image: "/images/services/audio-jingles.jpg",
     category: "Audio Production"
@@ -99,10 +100,8 @@ const EnhancedIntroParagraph = () => {
   );
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+    <div
+
       className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-3xl shadow-lg border border-gray-100 mb-12"
     >
       <p className="text-lg md:text-xl leading-relaxed text-gray-700">
@@ -119,7 +118,7 @@ const EnhancedIntroParagraph = () => {
         <StyledLink href="https://your-new-webpage.com">additional services</StyledLink>{" "}
         to meet your business needs.
       </p>
-    </motion.div>
+    </div>
   );
 };
 
@@ -145,27 +144,20 @@ const EnhancedServiceSlider = () => {
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-4">
           <div className="text-4xl font-bold tracking-tight text-black flex items-baseline gap-2">
-            <motion.span
+            <span
               key={index}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4 }}
               className="bg-gradient-to-r from-orange-600 to-red-500 bg-clip-text text-transparent"
             >
               {String(index + 1).padStart(2, "0")}
-            </motion.span>
+            </span>
             <span className="text-gray-400">/ {String(total).padStart(2, "0")}</span>
           </div>
-          <motion.div
+          <div
             key={`category-${index}`}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4 }}
             className="px-4 py-2 bg-gradient-to-r from-purple-100 to-red-100 rounded-full"
           >
             <span className="text-sm font-medium text-gray-700">{current.category}</span>
-          </motion.div>
+          </div>
         </div>
 
         {/* Enhanced Arrows */}
@@ -191,14 +183,9 @@ const EnhancedServiceSlider = () => {
         <div className="relative">
           <div className="relative w-full h-[400px] overflow-hidden rounded-3xl shadow-2xl">
             <AnimatePresence mode="wait" custom={dir}>
-              <motion.div
+              <div
                 key={index}
-                custom={dir}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.6 }}
+               
                 className="absolute w-full h-full"
               >
                 <div className={`w-full h-full bg-gradient-to-br ${current.color} flex items-center justify-center`}>
@@ -213,33 +200,29 @@ const EnhancedServiceSlider = () => {
                 <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-sm font-medium text-gray-900 px-3 py-1 rounded-full shadow">
                   ● {current.category}
                 </div>
-              </motion.div>
+              </div>
             </AnimatePresence>
           </div>
         </div>
 
         {/* Content Section */}
         <div className="space-y-6">
-          <motion.div
+          <div
             key={`title-${index}`}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4 }}
+           
           >
-            <h3 className="text-4xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {current.title}
             </h3>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed">
               {current.description}
             </p>
-          </motion.div>
+          </div>
 
           {/* Stats */}
-          {/* <motion.div
+          {/* <div
             key={`stats-${index}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
+            
             className="grid grid-cols-3 gap-4"
           >
             {Object.entries(current.stats).map(([key, value], i) => (
@@ -248,19 +231,17 @@ const EnhancedServiceSlider = () => {
                 <div className="text-sm text-gray-500 capitalize">{key}</div>
               </div>
             ))}
-          </motion.div> */}
+          </div> */}
 
           {/* CTA Button */}
-          {/* <motion.button
+          <button
             key={`cta-${index}`}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
+          
             className={`w-full py-4 px-6 bg-gradient-to-r ${current.color} text-white font-semibold rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2`}
           >
             <Play className="w-5 h-5" />
             View Portfolio
-          </motion.button> */}
+          </button>
         </div>
       </div>
 
@@ -285,6 +266,8 @@ const EnhancedServiceSlider = () => {
 
 const WhatWeOffer = () => {
   return (
+   <>
+   <NavBar/>
     <section className="w-full bg-gradient-to-br from-gray-50 to-white py-20 px-4 md:px-12 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -295,27 +278,23 @@ const WhatWeOffer = () => {
       <div className="max-w-6xl mx-auto relative">
         {/* Enhanced Header */}
         <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
+            
             className="inline-flex items-center bg-gradient-to-r from-purple-100 to-red-100 rounded-full py-3 px-6 text-sm text-gray-600 mb-8 shadow-lg"
           >
             <Layers className="w-5 h-5 mr-2 text-orange-600" />
             Our Services
-          </motion.div>
+          </div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          <h2
+            
             className="text-4xl md:text-6xl font-bold mb-6 text-gray-900 leading-tight"
           >
             Our core{" "}
             <span className="bg-gradient-to-r from-orange-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
               agency services
             </span>
-          </motion.h2>
+          </h2>
         </div>
 
         <EnhancedIntroParagraph />
@@ -324,12 +303,8 @@ const WhatWeOffer = () => {
         {/* Service Cards Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
           {services.map((service, i) => (
-            <motion.div
+            <div
               key={i}
-              variants={cardVariants}
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.3 }}
               className="group relative p-6 bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-purple-200 transform hover:-translate-y-2"
             >
               <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
@@ -340,11 +315,11 @@ const WhatWeOffer = () => {
               
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-orange-600/0 to-red-500/0 group-hover:from-orange-600/5 group-hover:to-red-500/5 rounded-3xl transition-all duration-300"></div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
-    </section>
+    </section></>
   );
 };
 
