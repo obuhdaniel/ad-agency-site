@@ -50,11 +50,9 @@ function formatDate(dateString: string | number | Date) {
     });
 }
 
-interface BlogPostPageProps {
-    params: { slug: string };
-}
+// No need for BlogPostPageProps interface
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
     const { slug } = params;
     const blog = await getBlog(slug);
 
